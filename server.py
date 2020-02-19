@@ -48,7 +48,7 @@ if os.environ.get('BINDING'):
 @app.route('/')
 def index():
     return '<h1>Hello World!</h1>'
-
+    
 # spectrogram
 @app.route('/spectrogram', methods=['POST'])
 def spectrogram():
@@ -95,7 +95,7 @@ def spectrogram():
 
 # melspectrogram
 @app.route('/melspectrogram', methods=['POST'])
-def spectrogram():
+def melspectrogram():
     
      #inputデータ読み取り
      u4 = str(uuid.uuid4())
