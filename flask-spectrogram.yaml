@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ labels:
+   app: flask-spectrogram
+ name: flask-spectrogram
+ namespace: default
+spec:
+ selector:
+   matchLabels:
+     app: flask-spectrogram
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       app: flask-spectrogram
+   spec:
+     containers:
+     - image: us.icr.io/asakawa7/flask-spectrogram:latest
+       name: flask-spectrogram
+       env:
+        - name: BINDING
+          valueFrom:
+            secretKeyRef:
+              name: binding-watson-vision-combined-bo
+              key: binding
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: flask-spectrogram
+ labels:
+   app: flask-spectrogram
+spec:
+ selector:
+   app: flask-spectrogram
+ type: NodePort
+ ports:
+  - port: 5000
+    nodePort: 30872

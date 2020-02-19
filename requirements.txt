@@ -1,0 +1,8 @@
+requests
+flask
+librosa
+numpy
+matplotlib
+ibm-watson
+wave
+ibm-cos-sdk
