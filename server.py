@@ -77,7 +77,7 @@ def spectrogram():
      log_power = librosa.core.amplitude_to_db(amplitude)
 
      # グラフ表示
-     librosa.display.specshow(log_power, sr=sr, hop_length=hop_length, cmap='magma')
+     librosa.display.specshow(log_power, sr=sr, hop_length=hop_length, cmap='binary')
      plt.savefig("static/" + u4 + ".png")
      plt.close()
      
@@ -126,7 +126,7 @@ def melspectrogram():
      melsp = librosa.feature.melspectrogram(S=log_stft,n_mels=64)
 
      # グラフ表示
-     librosa.display.specshow(melsp, sr=sr, hop_length=hop_length, cmap='magma')
+     librosa.display.specshow(melsp, sr=sr, hop_length=hop_length, cmap='binary')
      plt.savefig("static/" + u4 + ".png")
      plt.close()
      
@@ -163,7 +163,7 @@ def spectrogram_get():
      log_power = librosa.core.amplitude_to_db(amplitude)
 
      # グラフ表示
-     librosa.display.specshow(log_power, sr=sr, hop_length=hop_length, cmap='magma')
+     librosa.display.specshow(log_power, sr=sr, hop_length=hop_length, cmap='binary')
      u4 = str(uuid.uuid4())
      plt.savefig("static/" + u4 + ".png")
      plt.close()
